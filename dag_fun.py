@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.contrib.sensors.file_sensor import FileSensor
 from airflow.operators.python_operator import PythonOperator
-from airflow.operators.bash_operator importBashOperator
+from airflow.operators.bash_operator import BashOperator
 from datetime import datetime
 
 default_args = {
