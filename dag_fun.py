@@ -3,6 +3,7 @@ from airflow.contrib.sensors.file_sensor import FileSensor
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
 from datetime import datetime
+from time import sleep
 
 default_args = {
     "start_date": datetime(2020, 1, 1),
@@ -17,7 +18,7 @@ with DAG(dag_id="operator_fun_dag", schedule_interval="*/20 * * * *", default_ar
 
     def my_sleeping_function(random_base):
         """This is a function that will run within the DAG execution"""
-        time.sleep(random_base)
+        sleep(random_base)
 
     print_context = PythonOperator(
         task_id='print_the_context',
