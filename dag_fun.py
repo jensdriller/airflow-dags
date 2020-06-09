@@ -9,7 +9,7 @@ default_args = {
     "owner": "airflow",
 }
 
-with DAG(dag_id="operator_fun_dag", schedule_interval="*/20 * * * *", default_args=default_args) as dag:
+with DAG(dag_id="operator_fun_dag", schedule_interval="*/20 * * * *", default_args=default_args, catchup=False) as dag:
     def print_context(ds, **kwargs):
         pprint(kwargs)
         print(ds)
